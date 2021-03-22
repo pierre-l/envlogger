@@ -197,7 +197,7 @@ impl<T : Drain> EnvLogger<T> {
             .unwrap_or(FilterLevel::Off)
     }
 
-    fn enabled(&self, level: Level, module: &str) -> bool {
+    pub fn enabled(&self, level: Level, module: &str) -> bool {
         // Search for the longest match, the vector is assumed to be pre-sorted.
         for directive in self.directives.iter().rev() {
             match directive.name {
